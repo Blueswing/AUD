@@ -1,7 +1,7 @@
 package data_structure.tree;
 
 public class SplayTree<T> implements ITree<T> {
-
+	// TODO splay tree
 	@Override
 	public void insert(T value) {
 		// TODO Auto-generated method stub

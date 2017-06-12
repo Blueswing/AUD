@@ -49,7 +49,7 @@ public class AVLTree<T> implements ITree<T> {
 
 	@Override
 	public void remove(T value) {
-		// TODO Auto-generated method stub
+		// TODO remove
 		--size;
 	}
 
@@ -82,15 +82,25 @@ public class AVLTree<T> implements ITree<T> {
 		return root==null;
 	}
 	
-	public T findMax() throws UnderflowException{
+	public T findMax() {
 		if(isEmpty())
-			throw new UnderflowException();
+			try {
+				throw new UnderflowException();
+			} catch (UnderflowException e) {
+				System.err.println("empty tree");
+				e.printStackTrace();
+			}
 		return findMax(root).value;
 	}
 	
-	public T findMin() throws UnderflowException{
+	public T findMin(){
 		if(isEmpty())
-			throw new UnderflowException();
+			try {
+				throw new UnderflowException();
+			} catch (UnderflowException e) {
+				System.err.println("empty tree");
+				e.printStackTrace();
+			}
 		return findMin(root).value;
 	}
 	
@@ -129,7 +139,7 @@ public class AVLTree<T> implements ITree<T> {
 
 		if (compareResult < 0) {
 			node.left = insert(value, node.left);
-			if (height(node.left) - height(node.right) == 2) {
+			if (height(node.left) - height(node.right) >1) {
 				if (compare(value, node.left.value) < 0)
 					node = rotateWithLeftChild(node);
 				else
@@ -137,7 +147,7 @@ public class AVLTree<T> implements ITree<T> {
 			}
 		}else if (compareResult > 0) {
 			node.right = insert(value, node.right);
-			if (height(node.right) - height(node.left) == 2) {
+			if (height(node.right) - height(node.left) >1) {
 				if (compare(value, node.right.value) > 0)
 					node = rotateWithRightChild(node);
 				else
@@ -146,6 +156,11 @@ public class AVLTree<T> implements ITree<T> {
 
 		}
 		node.height = Math.max(height(node.left), height(node.right))+1;
+		return node;
+	}
+	
+	private AVLNode<T> balance(AVLNode<T> node){
+		// TODO balance
 		return node;
 	}
 
@@ -222,12 +237,17 @@ public class AVLTree<T> implements ITree<T> {
 
 	public static void main(String[] args) {
 		AVLTree<Integer> avl = new AVLTree<>();
-		for (int i = 0; i < 20; ++i) {
+		for (int i = 0; i < 31; ++i) {
 			avl.insert(i);
 		}
 		avl.insert(-1);
 		System.out.println(avl);
 		System.out.println(avl.contains(1));
 		System.out.println(avl.contains(-1));
+		avl.empty();
+		for (int i = 31; i > 0; --i) {
+			avl.insert(i);
+		}
+		System.out.println(avl);
 	}
 }
