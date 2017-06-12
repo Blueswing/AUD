@@ -6,7 +6,7 @@ public class HanoiTower {
 	
 	public static void main(String[] args)
 	{
-		move(5,'A','C');
+		move(3,'A','C');
 	}
 	
 	// 2^n - 1 minimum moves
