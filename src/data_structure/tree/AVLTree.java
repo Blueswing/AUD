@@ -8,10 +8,10 @@ public class AVLTree<T> implements ITree<T> {
 
 	private static class AVLNode<T> {
 
-		T value;
+		int height;
 		AVLNode<T> left;
 		AVLNode<T> right;
-		int height;
+		T value;
 
 		AVLNode(T value) {
 			this(value, null, null);
@@ -26,20 +26,21 @@ public class AVLTree<T> implements ITree<T> {
 	}
 
 	public static void main(String[] args) {
-		AVLTree<Integer> avl = new AVLTree<>();
+		AVLTree<String> avl = new AVLTree<>();
 		for (int i = 0; i < 31; ++i) {
-			avl.insert(i);
+			avl.insert(String.valueOf(i)+String.valueOf(i));
 		}
-		avl.insert(-1);
+		avl.insert(String.valueOf(-1));
 		System.out.println(avl);
-		System.out.println(avl.contains(1));
-		System.out.println(avl.contains(-1));
+
 		avl.empty();
 		for (int i = 31; i > 0; --i) {
-			avl.insert(i);
+			avl.insert(String.valueOf(i));
 		}
+		avl.remove(String.valueOf(21));
 		System.out.println(avl);
 		System.out.println(avl.size);
+
 	}
 
 	private static void outputIndentString(int indent, StringBuilder sb) {
@@ -67,9 +68,9 @@ public class AVLTree<T> implements ITree<T> {
 		}
 	}
 
-	private AVLNode<T> root;
-
 	private Comparator<? super T> cmp;
+
+	private AVLNode<T> root;
 
 	private int size;
 
@@ -217,8 +218,29 @@ public class AVLTree<T> implements ITree<T> {
 
 	@Override
 	public void remove(T value) {
-		// TODO remove
+		root = remove(value,root);
 		--size;
+	}
+	
+	private AVLNode<T> remove(T value, AVLNode<T> node){
+        if( node == null )
+            return node;
+            
+        int result = compare( value, node.value );
+            
+        if( result < 0 )
+            node.left = remove( value, node.left );
+        else if( result > 0 )
+            node.right = remove( value, node.right );
+        else if( node.left != null && node.right != null ) // Two children
+        {
+        	// replace current node by the minimum value in the right child 
+            node.value = findMin( node.right ).value; 
+            node.right = remove( node.value, node.right );
+        }
+        else // single child
+            node = ( node.left != null ) ? node.left : node.right;
+        return balance( node );
 	}
 
 	private AVLNode<T> rotateWithLeftChild(AVLNode<T> k2) {

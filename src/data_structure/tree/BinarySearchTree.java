@@ -224,6 +224,9 @@ public class BinarySearchTree<T> implements ITree<T> {
 			bst.insert(i);
 		}
 		bst.insert(-1);
+		bst.remove(3);
+		bst.remove(3);
+		bst.remove(9);
 		System.out.println(bst);
 	}
 }
