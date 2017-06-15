@@ -2,7 +2,7 @@ package data_structure.list;
 
 public interface IList<T> {
 	
-	public boolean add(T value);
+	public void add(T value);
 	
     public boolean remove(T value);
 
