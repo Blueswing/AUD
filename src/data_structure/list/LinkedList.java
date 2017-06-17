@@ -1,5 +1,7 @@
 package data_structure.list;
 
+import java.util.Iterator;
+
 public class LinkedList<T> implements IList<T> {
 
 	@Override
@@ -9,9 +11,9 @@ public class LinkedList<T> implements IList<T> {
 	}
 
 	@Override
-	public boolean remove(T value) {
+	public T remove(int index) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 	@Override
@@ -30,6 +32,18 @@ public class LinkedList<T> implements IList<T> {
 	public int size() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean remove(T value) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

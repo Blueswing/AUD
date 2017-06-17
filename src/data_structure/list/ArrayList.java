@@ -101,7 +101,7 @@ public class ArrayList<T> implements IList<T> {
 		items[index]=item;
 		size++;
 	}
-
+	@Override
 	public T remove(int index){
 		T item = items[index];
 		for(int i = index; i<size();i++){
@@ -111,11 +111,6 @@ public class ArrayList<T> implements IList<T> {
 		return item;
 	}
 
-	@Override
-	public boolean remove(T value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public boolean contains(T value) {
