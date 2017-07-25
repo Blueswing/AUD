@@ -1,10 +1,11 @@
 package data_structure.tree;
 
 import java.util.Comparator;
+import java.util.Iterator;
 
 import exception.UnderflowException;
 
-public class AVLTree<T> implements ITree<T> {
+public class AVLTree<T> extends AbstractSearchTree<T> {
 
 	private static class AVLNode<T> {
 
@@ -33,7 +34,7 @@ public class AVLTree<T> implements ITree<T> {
 		avl.insert(String.valueOf(-1));
 		System.out.println(avl);
 
-		avl.empty();
+		avl.clear();
 		for (int i = 31; i > 0; --i) {
 			avl.insert(String.valueOf(i));
 		}
@@ -104,14 +105,7 @@ public class AVLTree<T> implements ITree<T> {
 		return node;
 	}
 
-	@SuppressWarnings("unchecked")
-	private int compare(T lhs, T rhs) {
-		if (cmp != null) {
-			return cmp.compare(lhs, rhs);
-		} else {
-			return ((Comparable<T>) lhs).compareTo(rhs);
-		}
-	}
+
 
 	@Override
 	public boolean contains(T value) {
@@ -140,12 +134,6 @@ public class AVLTree<T> implements ITree<T> {
 	private AVLNode<T> doubleWithRightChild(AVLNode<T> k1) {
 		k1.right = rotateWithLeftChild(k1.right);
 		return rotateWithRightChild(k1);
-	}
-
-	@Override
-	public void empty() {
-		root = null;
-		size = 0;
 	}
 
 	public T findMax() {
@@ -193,7 +181,6 @@ public class AVLTree<T> implements ITree<T> {
 		return node == null ? -1 : node.height;
 	}
 
-	@Override
 	public void insert(T value) {
 		root = insert(value, root);
 		++size;
@@ -217,9 +204,10 @@ public class AVLTree<T> implements ITree<T> {
 	}
 
 	@Override
-	public void remove(T value) {
+	public boolean remove(T value) {
 		root = remove(value,root);
 		--size;
+		return true;
 	}
 	
 	private AVLNode<T> remove(T value, AVLNode<T> node){
@@ -273,5 +261,23 @@ public class AVLTree<T> implements ITree<T> {
 		StringBuilder sb = new StringBuilder();
 		outputNode(0, root, sb);
 		return sb.toString();
+	}
+
+	@Override
+	public void clear() {
+		root=null;
+		size=0;
+	}
+
+	@Override
+	public boolean add(T x) {
+		insert(x);
+		return true;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -1,9 +1,11 @@
 package data_structure.tree;
 
 import java.util.Comparator;
+import java.util.Iterator;
+
 import exception.UnderflowException;
 
-public class BinarySearchTree<T> implements ITree<T> {
+public class BinarySearchTree<T> extends AbstractSearchTree<T> {
 
 	private static class BinaryNode<T> {
 
@@ -23,7 +25,7 @@ public class BinarySearchTree<T> implements ITree<T> {
 	}
 
 	private BinaryNode<T> root;
-	private Comparator<? super T> cmp;
+
 	private int size;
 	
 	public BinarySearchTree() {
@@ -83,9 +85,10 @@ public class BinarySearchTree<T> implements ITree<T> {
 		++size;
 	}
 
-	public void remove(T x) {
+	public boolean remove(T x) {
 		root = remove(x, root);
 		--size;
+		return true;
 	}
 
 	public void printTree() {
@@ -175,8 +178,9 @@ public class BinarySearchTree<T> implements ITree<T> {
 	}
 
 	@Override
-	public void empty() {
+	public void clear() {
 		root = null;
+		size=0;
 	}
 
 	@Override
@@ -228,5 +232,17 @@ public class BinarySearchTree<T> implements ITree<T> {
 		bst.remove(3);
 		bst.remove(9);
 		System.out.println(bst);
+	}
+
+	@Override
+	public boolean add(T x) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

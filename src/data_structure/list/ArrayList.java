@@ -1,37 +1,7 @@
 package data_structure.list;
 
 public class ArrayList<T> implements IList<T> {
-/*
-	@Override
-	public boolean add(T value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public boolean remove(T value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean contains(T value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-*/
 	private static final int DEFAULT_CAPACITY = 8;
 	
 	private int size;
@@ -87,8 +57,9 @@ public class ArrayList<T> implements IList<T> {
 		old=null;
 	}
 	
-	public void add(T item){
+	public boolean add(T item){
 		insert(size(),item);
+		return true;
 	}
 	
 	public void insert(int index, T item){
@@ -114,6 +85,18 @@ public class ArrayList<T> implements IList<T> {
 
 	@Override
 	public boolean contains(T value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public java.util.Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean remove(T value) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -1,8 +1,9 @@
 package data_structure.tree;
 
 import java.util.Comparator;
+import java.util.Iterator;
 
-public class SplayTree<T> implements ITree<T> {
+public class SplayTree<T> extends AbstractSearchTree<T> {
 
 	private static class SplayNode<T> {
 
@@ -26,15 +27,15 @@ public class SplayTree<T> implements ITree<T> {
 	public static void main(String[] args) {
 		SplayTree<Integer> st = new SplayTree<>();
 		System.out.println(st);
-		st.insert(1);
+		st.add(1);
 		System.out.println(st);
-		st.insert(2);
+		st.add(2);
 		System.out.println(st);
-		st.insert(3);
+		st.add(3);
 		System.out.println(st);
-		st.insert(-2);
+		st.add(-2);
 		System.out.println(st);
-		st.insert(-1);
+		st.add(-1);
 		System.out.println(st);
 		st.remove(1);
 		System.out.println(st);
@@ -73,7 +74,6 @@ public class SplayTree<T> implements ITree<T> {
 		}
 	}
 
-	private Comparator<? super T> cmp;
 
 	private SplayNode<T> root;
 
@@ -91,15 +91,6 @@ public class SplayTree<T> implements ITree<T> {
 		size = 0;
 	}
 
-	@SuppressWarnings("unchecked")
-	private int compare(T lhs, T rhs) {
-		if (cmp != null) {
-			return cmp.compare(lhs, rhs);
-		} else {
-			return ((Comparable<T>) lhs).compareTo(rhs);
-		}
-	}
-
 	@Override
 	public boolean contains(T value) {
 		SplayNode<T> node = find(value);
@@ -110,7 +101,7 @@ public class SplayTree<T> implements ITree<T> {
 	}
 
 	@Override
-	public void empty() {
+	public void clear() {
 		root = null;
 		size = 0;
 	}
@@ -141,7 +132,7 @@ public class SplayTree<T> implements ITree<T> {
 	}
 
 	@Override
-	public void insert(T value) {
+	public boolean add(T value) {
 		SplayNode<T> tmp = root;
 		SplayNode<T> tmpParent = null;
 		while (tmp != null) {
@@ -152,7 +143,7 @@ public class SplayTree<T> implements ITree<T> {
 				tmp = tmp.right;
 			} else {
 				splay(tmp);
-				return;
+				return true; // TODO
 			}
 		}
 		tmp = new SplayNode<>(value);
@@ -167,6 +158,7 @@ public class SplayTree<T> implements ITree<T> {
 		}
 		splay(tmp);
 		++size;
+		return true;
 	}
 
 	public boolean isEmpty() {
@@ -174,13 +166,13 @@ public class SplayTree<T> implements ITree<T> {
 	}
 
 	@Override
-	public void remove(T value) {
+	public boolean remove(T value) {
 		SplayNode<T> node = find(value);
 		if (node == null)
-			return;
+			return false;
 		if (size == 1) {
-			empty();
-			return;
+			clear();
+			return true;
 		}
 		splay(node);
 		if (node.left == null)
@@ -199,6 +191,7 @@ public class SplayTree<T> implements ITree<T> {
 			minNode.left.parent = minNode;
 		}
 		--size;
+		return true;
 	}
 
 	private void replace(SplayNode<T> n1, SplayNode<T> n2) {
@@ -285,5 +278,11 @@ public class SplayTree<T> implements ITree<T> {
 		outputNode(0, root, sb);
 		sb.append("size: " + size);
 		return sb.toString();
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
