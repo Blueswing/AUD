@@ -10,5 +10,15 @@ Data structures:
 * [Splay tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/SplayTree.java)
 
 Algorithms:
+
+Sorting algorithms:
+* [Bubble sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
+* [Insertion sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
+* [Shell sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
+* [Heap sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
+* [Merge sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
+* [Quick sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
+
+Others:
 * [Hanoi tower](https://github.com/Blueswing/AUD/blob/master/src/algorithm/recursion/HanoiTower.java)
 * [Max subarray problem](https://github.com/Blueswing/AUD/blob/master/src/algorithm/dynamic_programming/MaximumSubArray.java)
