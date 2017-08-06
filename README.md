@@ -10,6 +10,7 @@ Data structures:
 * [AVL tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/AVLTree.java)
 * [Splay tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/SplayTree.java)
 * [Disjoint sets](https://github.com/Blueswing/AUD/blob/master/src/data_structure/DisjointSets.java)
+
 Algorithms:
 
 Sorting algorithms:
