@@ -28,7 +28,6 @@ public class SortingAlgorithms {
 					tmp = a[j];
 					a[j] = a[j + 1];
 					a[j + 1] = tmp;
-					// System.out.println(Arrays.toString(a));
 				}
 			}
 		}
@@ -51,7 +50,6 @@ public class SortingAlgorithms {
 			for (j = p; j > 0 && tmp < a[j - 1]; --j)
 				a[j] = a[j - 1];
 			a[j] = tmp;
-			// System.out.println(Arrays.toString(a));
 		}
 	}
 
@@ -72,7 +70,6 @@ public class SortingAlgorithms {
 					a[j] = a[j - gap];
 				a[j] = tmp;
 			}
-			// System.out.println(Arrays.toString(a));
 		}
 	}
 
@@ -179,8 +176,6 @@ public class SortingAlgorithms {
 				}
 				for (; a[--j] > pivot;) {
 				}
-				// while (a[++i]<pivot) {}
-				// while (a[--j]>pivot) {}
 				if (i < j) {
 					tmp = a[j];
 					a[j] = a[i];
