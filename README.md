@@ -23,6 +23,9 @@ Sorting algorithms:
 
 LeetCode:
 * [Two sum](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Reverse integer](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Is palindrome](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Add two numbers](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 
 Others:
 * [Hanoi tower](https://github.com/Blueswing/AUD/blob/master/src/algorithm/recursion/HanoiTower.java)
