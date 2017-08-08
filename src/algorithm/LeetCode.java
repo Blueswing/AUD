@@ -108,31 +108,36 @@ public class LeetCode {
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode res = new ListNode(0);
 		ListNode tmp = res;
-		tmp.val = (l1.val + l2.val) % 10;
-		tmp.next = new ListNode((l1.val + l2.val) / 10);
-		while (l1.next != null) {
+		int n = l1.val + l2.val;
+		tmp.val = n % 10;
+		tmp.next = new ListNode(n / 10);
+		while (l1.next != null && l2.next != null) {
 			tmp = tmp.next;
 			l1 = l1.next;
-			if (l2.next == null) {
-				tmp.next = new ListNode((tmp.val + l1.val) / 10);
-				tmp.val = (tmp.val + l1.val) % 10;
-			} else {
-				l2 = l2.next;
-				tmp.next = new ListNode((tmp.val + l1.val + l2.val) / 10);
-				tmp.val = (tmp.val + l1.val + l2.val) % 10;
-			}
+			l2 = l2.next;
+			n = tmp.val + l1.val + l2.val;
+			tmp.next = new ListNode(n / 10);
+			tmp.val = n % 10;
+		}
+		while (l1.next != null) {
+			l1 = l1.next;
+			tmp = tmp.next;
+			n = tmp.val + l1.val;
+			tmp.next = new ListNode(n / 10);
+			tmp.val = n % 10;
 		}
 		while (l2.next != null) {
 			l2 = l2.next;
 			tmp = tmp.next;
-			tmp.next = new ListNode((tmp.val + l2.val) / 10);
-			tmp.val = (tmp.val + l2.val) % 10;
+			n = tmp.val + l2.val;
+			tmp.next = new ListNode(n / 10);
+			tmp.val = n % 10;
 		}
 		if (tmp.next.val == 0)
 			tmp.next = null;
 		return res;
 	}
-	
+
 	/**
 	 * TODO hard
 	 * 
