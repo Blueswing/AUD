@@ -21,6 +21,11 @@ Sorting algorithms:
 * [Merge sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
 * [Quick sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
 
+LeetCode:
+* [Two sum](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+
 Others:
 * [Hanoi tower](https://github.com/Blueswing/AUD/blob/master/src/algorithm/recursion/HanoiTower.java)
 * [Max subarray problem](https://github.com/Blueswing/AUD/blob/master/src/algorithm/dynamic_programming/MaximumSubArray.java)
+* [Is power of 2](https://github.com/Blueswing/AUD/blob/master/src/algorithm/Util.java)
+* [Count 1's in a binary number](https://github.com/Blueswing/AUD/blob/master/src/algorithm/Util.java)
