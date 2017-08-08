@@ -1,5 +1,4 @@
-# AUD
-Algorithms and data structures
+# AUD - Algorithms and data structures
 
 Algorithms:
 
