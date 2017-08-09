@@ -1,7 +1,9 @@
 package algorithm;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class LeetCode {
 	/**
@@ -139,6 +141,89 @@ public class LeetCode {
 	}
 
 	/**
+	 * the other approach: use String.indexOf()
+	 * 
+	 * @param strs
+	 * @return
+	 */
+	public static String longestCommonPrefix(String[] strs) {
+		if (strs == null || strs.length == 0)
+			return "";
+		StringBuilder sb = new StringBuilder();
+		char c;
+		for (int i = 0; i < strs[0].length(); ++i) {
+			c = strs[0].charAt(i);
+			for (int j = 1; j < strs.length; ++j) {
+				if (i == strs[j].length() || strs[j].charAt(i) != c)
+					return sb.toString();
+			}
+			sb.append(c);
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * stack, check if a stack is empty
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static boolean isValid(String s) {
+		char c;
+		Stack<Character> stack = new Stack<>();
+		for (int i = 0, n = s.length(); i < n; i++) {
+			c = s.charAt(i);
+			switch (c) {
+			case '(':
+			case '[':
+			case '{':
+				stack.push(c);
+				break;
+			case ')':
+				if (stack.isEmpty() || stack.pop() != '(')
+					return false;
+				break;
+			case ']':
+				if (stack.isEmpty() || stack.pop() != '[')
+					return false;
+				break;
+			case '}':
+				if (stack.isEmpty() || stack.pop() != '{')
+					return false;
+				break;
+			}
+		}
+		return stack.isEmpty();
+	}
+
+	/**
+	 * Queue, add(last), poll(first), while (q.poll() != tmp);
+	 * 
+	 * @param s
+	 * @return
+	 */
+	public static int lengthOfLongestSubstring(String s) {
+		if (s == null)
+			return 0;
+		ArrayDeque<Character> q = new ArrayDeque<>(s.length());
+		int max = 0;
+		char tmp;
+		for (int i = 0; i < s.length(); ++i) {
+			tmp = s.charAt(i);
+			if (q.contains(tmp)) {
+				while (q.poll() != tmp)
+					;
+				q.add(tmp);
+			} else {
+				q.add(tmp);
+				if (q.size() > max)
+					max = q.size();
+			}
+		}
+		return max;
+	}
+
+	/**
 	 * TODO hard
 	 * 
 	 * @param nums1
@@ -172,26 +257,36 @@ public class LeetCode {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Two sum:");
-		System.out.println(Arrays.toString(twoSum(new int[] { 1, 3, 6, 8, 9 }, 12)));
-		System.out.println(Arrays.toString(twoSum(new int[] { 10, 4, 4, 4, 4 }, 8)));
-		System.out.println(Arrays.toString(twoSum(new int[] { 10, 3, 6, 8, 9 }, 19)));
-		System.out.println(Arrays.toString(twoSum(new int[] { 10, 10, 10, 10, 7 }, 12)));
-		System.out.println("Reverse integer");
-		System.out.println(reverseInteger(65493813));
-		System.out.println(reverseInteger(100000009));
-		System.out.println(reverseInteger(-123456789));
-		System.out.println("Is palindrome:");
-		System.out.println(isPalindrome_2(123321));
-		System.out.println(isPalindrome_2(12321));
-		System.out.println(isPalindrome_2(123322));
-		System.out.println("Add two numbers:");
-		ListNode l1 = new ListNode(8);
-		ListNode l2 = new ListNode(6);
-		l1.next = new ListNode(6);
-		l2.next = new ListNode(4);
-		l2.next.next = new ListNode(8);
-		System.out.println(l1 + " + " + l2 + " = " + addTwoNumbers(l1, l2));
+		// System.out.println("Two sum:");
+		// System.out.println(Arrays.toString(twoSum(new int[] { 1, 3, 6, 8, 9
+		// }, 12)));
+		// System.out.println(Arrays.toString(twoSum(new int[] { 10, 4, 4, 4, 4
+		// }, 8)));
+		// System.out.println(Arrays.toString(twoSum(new int[] { 10, 3, 6, 8, 9
+		// }, 19)));
+		// System.out.println(Arrays.toString(twoSum(new int[] { 10, 10, 10, 10,
+		// 7 }, 12)));
+		// System.out.println("Reverse integer");
+		// System.out.println(reverseInteger(65493813));
+		// System.out.println(reverseInteger(100000009));
+		// System.out.println(reverseInteger(-123456789));
+		// System.out.println("Is palindrome:");
+		// System.out.println(isPalindrome_2(123321));
+		// System.out.println(isPalindrome_2(12321));
+		// System.out.println(isPalindrome_2(123322));
+		// System.out.println("Add two numbers:");
+		// ListNode l1 = new ListNode(8);
+		// ListNode l2 = new ListNode(6);
+		// l1.next = new ListNode(6);
+		// l2.next = new ListNode(4);
+		// l2.next.next = new ListNode(8);
+		// System.out.println(l1 + " + " + l2 + " = " + addTwoNumbers(l1, l2));
+		// System.out.println("Longest common prefix:");
+		// String[] s = {"Android","An","AndroiD","Andrew","And"};
+		// System.out.println(longestCommonPrefix(s));
+		// System.out.println("Valid parentheses:");
+		// System.out.println(isValid("(((([[]]))))){}{]"));
+		// System.out.println(isValid("((((([[]]))))){}{}"));
+		System.out.println(lengthOfLongestSubstring("aab"));
 	}
-
 }

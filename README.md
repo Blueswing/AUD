@@ -15,6 +15,9 @@ LeetCode:
 * [Reverse integer](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 * [Is palindrome](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 * [Add two numbers](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Longest common prefix](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Is valid parentheses](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Length of longest substring with no repeating character](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 
 Others:
 * [Hanoi tower](https://github.com/Blueswing/AUD/blob/master/src/algorithm/recursion/HanoiTower.java)
