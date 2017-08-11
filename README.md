@@ -35,3 +35,6 @@ Data structures:
 * [AVL tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/AVLTree.java)
 * [Splay tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/SplayTree.java)
 * [Disjoint sets](https://github.com/Blueswing/AUD/blob/master/src/data_structure/DisjointSets.java)
+* [Directed graph](https://github.com/Blueswing/AUD/blob/master/src/data_structure/graph/DirectedGraph.java)
+* [Undirected graph](https://github.com/Blueswing/AUD/blob/master/src/data_structure/graph/UndirectedGraph.java)
+* [Weighted directed graph](https://github.com/Blueswing/AUD/blob/master/src/data_structure/graph/WeightedGraph.java)

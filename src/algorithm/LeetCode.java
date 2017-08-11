@@ -28,6 +28,27 @@ public class LeetCode {
 		return result;
 	}
 
+	/**
+	 * two pass hash table also works; slower
+	 * 
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public int[] twoSum_2(int[] nums, int target) {
+    		Map<Integer, Integer> map = new HashMap<>();
+    		for (int i = 0; i < nums.length; i++) {
+        		map.put(nums[i], i);  // if a number occurs more than once in the array, the value is the last index
+    		}
+    		for (int i = 0; i < nums.length; i++) {
+        		int complement = target - nums[i];
+        		if (map.containsKey(complement) && map.get(complement) != i) {  // here i is the first index of complement, while the hash map stores the last one.
+            			return new int[] { i, map.get(complement) };  // if they are not the same index, then return
+        		}
+    		}
+    		return null;
+	}
+
 	public static final long inv_divisor = 0x1999999A;
 	public static final int max = (int) (Integer.MAX_VALUE * inv_divisor >> 32);
 
@@ -197,7 +218,7 @@ public class LeetCode {
 	}
 
 	/**
-	 * Queue, add(last), poll(first), while (q.poll() != tmp);
+	 * Queue, add(last), poll(first), while (q.poll() != tmp); sliding window
 	 * 
 	 * @param s
 	 * @return
@@ -222,7 +243,39 @@ public class LeetCode {
 		}
 		return max;
 	}
-
+	
+    public static int removeDuplicates(int[] nums) {
+        int l = nums.length,step = 1;
+        for(int i = 0 ; i+step < l; ++i){
+        	while(nums[i]==nums[i+step]){
+        		step++;
+        	}
+        	nums[i] = nums[i+step];
+        }
+    	return l+1-step;
+    }
+	
+	public static String zigzagConversion(String s, int numRows){
+		if(s==null || s.length()==0 || numRows==0) return "";
+		char[] res = new char[s.length()];
+		int[] ls = new int[numRows];
+		int half_t = numRows-1,t = half_t<<1 , r=s.length()%t;
+		ls[ls.length-1] = ls[0] = s.length()/t;
+		for(int i=1;i<half_t;++i){
+			ls[i]=ls[0]<<1;
+		}
+		for(int i = 0 ; i < r; ++i){
+			ls[i%half_t]+=1;
+		}
+		for(int i = 0 ; i < half_t; ++i){
+			ls[i+1]+=ls[i];
+		}
+		for(int i = 0; i < s.length();++i){
+			
+		}
+		
+		return String.valueOf(res);
+	}
 	/**
 	 * TODO hard
 	 * 
@@ -287,6 +340,9 @@ public class LeetCode {
 		// System.out.println("Valid parentheses:");
 		// System.out.println(isValid("(((([[]]))))){}{]"));
 		// System.out.println(isValid("((((([[]]))))){}{}"));
-		System.out.println(lengthOfLongestSubstring("aab"));
+//		System.out.println(lengthOfLongestSubstring("aab"));
+		int[] arr={1,1,1,2,3,4,4,4,5};
+		System.out.println(removeDuplicates(arr));
+		System.out.println(Arrays.toString(arr));
 	}
 }
