@@ -10,6 +10,9 @@ Sorting algorithms:
 * [Merge sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
 * [Quick sort](https://github.com/Blueswing/AUD/blob/master/src/algorithm/sorting/SortingAlgorithms.java)
 
+Dynamic programming:
+* [Fastest way](https://github.com/Blueswing/AUD/blob/master/src/algorithm/dynamic_programming/FastestWay.java)
+
 LeetCode:
 * [Two sum](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 * [Reverse integer](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
