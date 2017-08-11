@@ -36,33 +36,31 @@ public class FastestWay {
 				l2[j] = 1;
 			}
 		}
-		if(f1[n-1]+x1<=f2[n-1]+x2){
-			f_star = f1[n-1]+x1;
+		if (f1[n - 1] + x1 <= f2[n - 1] + x2) {
+			f_star = f1[n - 1] + x1;
 			l_star = 1;
-		}else{
-			f_star = f2[n-1]+x2;
+		} else {
+			f_star = f2[n - 1] + x2;
 			l_star = 2;
 		}
-
 	}
-	
-	public void print(){
+
+	public void print() {
 		System.out.println(Arrays.toString(f1));
 		System.out.println(Arrays.toString(f2));
 		System.out.println(Arrays.toString(l1));
 		System.out.println(Arrays.toString(l2));
 		int i = l_star;
-		System.out.println("line "+i+", station "+(f1.length-1));
-		for(int j = f1.length-1;j>0;--j){
-			if(i==1){
-				i=l1[j];
-				System.out.println("line "+i+", station "+(j-1));
-			}else if(i==2){
-				i=l2[j];
-				System.out.println("line "+i+", station "+(j-1));
+		System.out.println("line " + i + ", station " + (f1.length - 1));
+		for (int j = f1.length - 1; j > 0; --j) {
+			if (i == 1) {
+				i = l1[j];
+				System.out.println("line " + i + ", station " + (j - 1));
+			} else if (i == 2) {
+				i = l2[j];
+				System.out.println("line " + i + ", station " + (j - 1));
 			}
 		}
-		
 	}
 
 	public static void main(String[] args) {
@@ -71,8 +69,6 @@ public class FastestWay {
 		int[] t1 = { 2, 3, 1, 3, 4 };
 		int[] t2 = { 2, 1, 2, 2, 1 };
 		int e1 = 2, e2 = 4, x1 = 3, x2 = 2;
-		new FastestWay(e1,e2,x1,x2,a1,a2,t1,t2).print();
-
+		new FastestWay(e1, e2, x1, x2, a1, a2, t1, t2).print();
 	}
-
 }
