@@ -15,7 +15,6 @@ public class Vertex<T> {
 //		visited = false;
 //		previousVertex = null;
 //		cost = 0;
-		
 	}
 	public boolean connect(T endVertex, double weight){
 		if(label!=endVertex){

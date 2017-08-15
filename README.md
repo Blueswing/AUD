@@ -21,6 +21,7 @@ LeetCode:
 * [Longest common prefix](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 * [Is valid parenthesis](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 * [Length of longest substring with no repeating character](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
+* [Remove duplicated elements](https://github.com/Blueswing/AUD/blob/master/src/algorithm/LeetCode.java)
 
 Others:
 * [Hanoi tower](https://github.com/Blueswing/AUD/blob/master/src/algorithm/recursion/HanoiTower.java)
@@ -33,6 +34,7 @@ Data structures:
 * [Array list](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/ArrayList.java)
 * [Linked list](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/LinkedList.java)
 * [Stack](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/Stack.java)
+* [Stack](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/MinStack.java)
 * [Queue](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/QueueList.java)
 * [Binary search tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/BinarySearchTree.java)
 * [AVL tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/AVLTree.java)
