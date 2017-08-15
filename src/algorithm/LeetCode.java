@@ -3,6 +3,7 @@ package algorithm;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class LeetCode {
@@ -243,16 +244,19 @@ public class LeetCode {
 		}
 		return max;
 	}
-	
+	/**
+	 * two pointers problem; O(N) time complexity, O(1) space complexity
+	 * 
+	 * @param nums
+	 * @return length of subarray
+	 */
     public static int removeDuplicates(int[] nums) {
-        int l = nums.length,step = 1;
-        for(int i = 0 ; i+step < l; ++i){
-        	while(nums[i]==nums[i+step]){
-        		step++;
-        	}
-        	nums[i] = nums[i+step];
+        int l = nums.length,j=0;
+        for(int i = 1; i<l;++i){
+        	if(nums[i]!=nums[j])
+	        	nums[++j]=nums[i];
         }
-    	return l+1-step;
+    	return j+1;
     }
 	
 	public static String zigzagConversion(String s, int numRows){
@@ -341,7 +345,13 @@ public class LeetCode {
 		// System.out.println(isValid("(((([[]]))))){}{]"));
 		// System.out.println(isValid("((((([[]]))))){}{}"));
 //		System.out.println(lengthOfLongestSubstring("aab"));
-		int[] arr={1,1,1,2,3,4,4,4,5};
+		int[] arr={1,2,3,4,5,5};
+		System.out.println(removeDuplicates(arr));
+		System.out.println(Arrays.toString(arr));
+		arr=new int[]{1,1,1,4,5,5};
+		System.out.println(removeDuplicates(arr));
+		System.out.println(Arrays.toString(arr));
+		arr=new int[]{1,1};
 		System.out.println(removeDuplicates(arr));
 		System.out.println(Arrays.toString(arr));
 	}
