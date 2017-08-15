@@ -34,7 +34,7 @@ Data structures:
 * [Array list](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/ArrayList.java)
 * [Linked list](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/LinkedList.java)
 * [Stack](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/Stack.java)
-* [Stack](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/MinStack.java)
+* [Minimal stack](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/MinStack.java)
 * [Queue](https://github.com/Blueswing/AUD/blob/master/src/data_structure/list/QueueList.java)
 * [Binary search tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/BinarySearchTree.java)
 * [AVL tree](https://github.com/Blueswing/AUD/blob/master/src/data_structure/tree/AVLTree.java)
